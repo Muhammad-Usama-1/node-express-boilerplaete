@@ -8,14 +8,9 @@ const cookieParser = require("cookie-parser");
 const hpp = require("hpp");
 const morgan = require("morgan");
 const rateLimit = require("express-rate-limit");
-// const tourRoute = require("./routes/tourRoute");
 const userRoute = require("./routes/userRoute");
 const AppEror = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
-// const bookingController = require("./controllers/bookingController");
-// const reviewRoute = require("./routes/reviewRoute");
-// const viewRouter = require("./routes/viewRoutes");
-// const bookingRoute = require("./routes/bookingRoute");
 // 100 request for same ip in 1 hour
 const limiter = rateLimit({
   max: 100, // Limit each IP to 100 requests per `window` (here, per 60 minutes)

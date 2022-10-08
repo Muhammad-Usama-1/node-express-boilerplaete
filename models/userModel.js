@@ -52,17 +52,17 @@ const userSchema = new mongoose.Schema({
   passwordResetToken: String,
   passwordResetExpires: Date,
 });
-// userSchema.pre("save", async function (next) {
-//   // Only runs if password is modifiel
-//   if (!this.isModified("password")) next();
+userSchema.pre("save", async function (next) {
+  // Only runs if password is modifiel
+  if (!this.isModified("password")) next();
 
-//   // Hashing password to avoid brute force attack
-//   this.password = await bcrypt.hash(this.password, 12);
+  // Hashing password to avoid brute force attack
+  this.password = await bcrypt.hash(this.password, 12);
 
-//   // Delete  password confirm field
-//   this.passwordConfirm = undefined;
-//   next();
-// });
+  // Delete  password confirm field
+  this.passwordConfirm = undefined;
+  next();
+});
 userSchema.pre("save", function (next) {
   // Only runs if password is modifiel
   if (!this.isModified("password") || this.isNew) return next();

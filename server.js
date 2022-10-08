@@ -19,7 +19,7 @@ const DB = process.env.DATABASE.replace(
 const DBLocal = process.env.DATABASE_LOCAL;
 
 mongoose
-  .connect(process.env.NODE_ENV === "development" ? DBLocal : DB, {
+  .connect(DB, {
     useFindAndModify: true,
     useNewUrlParser: true,
     useCreateIndex: true,
