@@ -19,7 +19,7 @@ https://mailtrap.io
 
 ### Main Route required for every request (your_url/api/v1/users)
 
-# Available routes for Authentication
+## Available routes for Authentication
 
 POST-- > '/sign-up'
 POST-- > '/login'
